@@ -2,17 +2,20 @@
   export async function load({session}) {
     return {
       props: {
-        user: session.user,
+        access_token: session.access_token,
       }
     }
   }
 </script>
 <script>
-  export let user;
+  export let access_token;
+  $: is_authenticated = access_token !== undefined
 </script>
 
-{#if user}
-<h1>Hello {user}</h1>
+
+
+{#if is_authenticated}
+<h1>Access token: {access_token}</h1>
 <a href="/logout">
   <button>Logout</button>
 </a>
@@ -21,5 +24,4 @@
   <button>Login with Reddit</button>
 </a>
 {/if}
-
 

@@ -49,3 +49,24 @@ function getToken(code) {
       return {access_token: data.access_token, refresh_token: data.refresh_token}
     })
 }
+
+export function refreshTokens(refresh_token) {
+  if (refreshTokens === undefined) {
+    return {}
+  }
+  const authorization = "Basic " + btoa(unescape(encodeURIComponent(clientId + ":" + "")));
+  const form_body = `grant_type=refresh_token&refresh_token=${refresh_token}`;
+
+  return fetch("https://www.reddit.com/api/v1/access_token", {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': authorization,
+    },
+    body: form_body})
+    .then(response => response.json())
+    .then(data => {
+      return {access_token: data.access_token, refresh_token: data.refresh_token}
+    })
+
+}
