@@ -8,10 +8,6 @@ export async function get(request) {
   const access_token = tokens.access_token
   const refresh_token = tokens.refresh_token
 
-  // Get Reddit user
-  const redditUser = await getRedditUser(access_token)
-
-  request.locals.user = redditUser.name
   request.locals.access_token = access_token
   request.locals.refresh_token = refresh_token
 
@@ -23,16 +19,6 @@ export async function get(request) {
   }
 }
 
-function getRedditUser(access_token) {
-  return fetch("https://oauth.reddit.com/api/v1/me", {
-    method: 'GET',
-    headers: {
-      authorization: "bearer " + access_token,
-      'user-agent': 'Test'
-    }})
-    .then(response => response.json())
-    .then(data => data)
-}
 
 function getToken(code) {
   const authorization = "Basic " + btoa(unescape(encodeURIComponent(clientId + ":" + "")));
@@ -52,7 +38,7 @@ function getToken(code) {
 
 export function refreshTokens(refresh_token) {
   if (refreshTokens === undefined) {
-    return {}
+    return
   }
   const authorization = "Basic " + btoa(unescape(encodeURIComponent(clientId + ":" + "")));
   const form_body = `grant_type=refresh_token&refresh_token=${refresh_token}`;

@@ -2,8 +2,6 @@ import cookie from 'cookie'
 import { refreshTokens } from './routes/callback'
 
 export async function handle({ event, resolve }) {
-  console.log("first", event.locals)
-
   // 1. check for refresh token in cookie header
   const cookies = cookie.parse(event.request.headers.get('cookie') || '')
   let refresh_token = cookies.refresh_token
