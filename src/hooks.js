@@ -15,7 +15,7 @@ export async function handle({ event, resolve }) {
   event.locals.access_token = new_access_token
 
   const response = await resolve(event)
-  console.log("second", event.locals)
+  //console.log("second", event.locals)
   // 3. save new_refresh_token in cookie
 
   response.headers.set('set-cookie', `refresh_token=${event.locals.refresh_token || ''}; path=/; HttpOnly`)
