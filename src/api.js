@@ -3,7 +3,6 @@ export function getRedditUser(access_token) {
     method: 'GET',
     headers: {
       authorization: "bearer " + access_token,
-      'user-agent': 'Test'
     }})
     .then(response => response.json())
     .then(data => data)
@@ -14,7 +13,6 @@ export function getAllSavedPosts(access_token, username) {
     method: 'GET',
     headers: {
       authorization: "bearer " + access_token,
-      'user-agent': 'Test'
     }})
     .then(response => response.json())
     .then(data => data)
