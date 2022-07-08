@@ -53,9 +53,21 @@
   {/if}
 </Navbar>
 
-<div class="bg-slate-50">
-  {#if is_authenticated}
-    <Saved savedPosts={savedPosts}></Saved>
-  {/if}
-</div>
-
+{#if is_authenticated}
+  <div class="bg-slate-50">
+      <Saved savedPosts={savedPosts}></Saved>
+  </div>
+{:else}
+  <div class="h-screen bg-slate-50">
+    <div class="flex items-center justify-center h-2/3">
+      <div class="p-4">
+        <h1 class="text-4xl font-semibold text-orange-600">Shuffle your saved Reddit Posts</h1>
+        <a href="/login">
+          <button class="mt-4 bg-gradient-to-r text-white from-red-400  to-orange-600 font-semibold py-2 px-4 rounded shadow">
+            Login with Reddit
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+{/if}
