@@ -1,5 +1,5 @@
-const clientId = "yhdXgHYV0AUeX58yOWpZYA"
-const tokenUrl = "https://www.reddit.com/api/v1/access_token"
+const clientId = import.meta.env.VITE_CLIENT_ID
+const callback_uri = import.meta.env.VITE_REDIRECT_URI
 
 export async function get(request) {
   const code = request.url.searchParams.get('code')
@@ -19,10 +19,9 @@ export async function get(request) {
   }
 }
 
-
 function getToken(code) {
   const authorization = "Basic " + btoa(unescape(encodeURIComponent(clientId + ":" + "")));
-  const form_body = `grant_type=authorization_code&code=${code}&redirect_uri=http://localhost:3000/callback`;
+  const form_body = `grant_type=authorization_code&code=${code}&redirect_uri=${callback_uri}`;
   return fetch("https://www.reddit.com/api/v1/access_token", {
     method: 'POST',
     headers: {
