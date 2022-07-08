@@ -3,7 +3,7 @@
     <img src="logo.png" width="30" height="30">
     <p>RedditShuffle</p>
   </a>
-  <div class="flex items-center space-x-2">
+  <div class="flex items-center space-x-4">
     <slot></slot>
   </div>
 </nav>

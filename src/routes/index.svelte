@@ -44,11 +44,17 @@
     <a href="/logout" class="text-sm text-neutral-700 no-underline">
       Logout
     </a>
+    <a href="https://docs.google.com/forms/d/1CFZgkFdRRFcaggQIwIUM2QRNBUzl_WWEZhTajEZyCE4/viewform?edit_requested=true" class="text-sm">
+      Feedback?
+    </a>
   {:else}
     <a href="/login">
       <button class="bg-transparent hover:bg-orange-600 text-orange-600 font-semibold text-sm hover:text-white py-2 px-2 border border-orange-600 hover:border-transparent rounded">
         Login with Reddit
       </button>
+    </a>
+    <a href="https://docs.google.com/forms/d/1CFZgkFdRRFcaggQIwIUM2QRNBUzl_WWEZhTajEZyCE4/viewform?edit_requested=true" class="text-sm">
+      Feedback?
     </a>
   {/if}
 </Navbar>
