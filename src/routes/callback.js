@@ -1,5 +1,7 @@
-const clientId = import.meta.env.VITE_CLIENT_ID
-const callback_uri = import.meta.env.VITE_REDIRECT_URI
+import 'dotenv/config'
+
+const clientId = process.env.VITE_CLIENT_ID
+const callback_uri = process.env.VITE_REDIRECT_URI
 
 export async function get(request) {
   const code = request.url.searchParams.get('code')
