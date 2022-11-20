@@ -36,6 +36,25 @@
   }
 </script>
 
+<svelte:head>
+  <title>RedditShuffle | Shuffle your saved Reddit posts</title>
+  <meta name="description" content="View all your favorite Reddit posts with a fun little spin ✨" />
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content="https://redditshuffle.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RedditShuffle | Shuffle your saved Reddit posts">
+  <meta property="og:description" content="View all your favorite Reddit posts with a fun little spin ✨">
+  <meta property="og:image" content="/logo.png">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="twitter:domain" content="redditshuffle.com">
+  <meta property="twitter:url" content="https://redditshuffle.com">
+  <meta name="twitter:title" content="RedditShuffle | Shuffle your saved Reddit posts">
+  <meta name="twitter:description" content="View all your favorite Reddit posts with a fun little spin ✨">
+  <meta name="twitter:image" content="/logo.png">
+</svelte:head>
+
 <Navbar>
   {#if is_authenticated}
     <button on:click={shuffleSavedPosts} class="bg-transparent hover:bg-orange-600 text-orange-600 font-semibold text-sm hover:text-white py-2 px-2 border border-orange-600 hover:border-transparent rounded">
